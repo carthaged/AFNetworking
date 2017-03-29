@@ -1,0 +1,16 @@
+language: objective-c
+osx_image: xcode8.3
+before_install:
+- brew update
+- brew outdated carthage || brew upgrade carthage
+script:
+- ./build.sh AFNetworking/AFNetworking
+deploy:
+  provider: releases
+  api_key:
+    secure: KYt96rGHTqxYsTvZrLznSc1KS8sT4OOaDFh6KKEI62NVpCiaUQxtK7wpcXDkh6FcGqR7q7izL+njkT4UaeR/b220ZvqN8FRG29MWvlfeqSP6M5aBzRasdRdub8bZEOR8zAI4ve9T588S6vw/F+R91tOZb4SrhacD6YVRZYmZZyE/vhkgUCCLiCpdZPN9OqPt1DPO203DM82KgLi5Oenwan5ILTixDNLAv6REk9dyLghrUGIXfxLC9X5tCgsrb0kqzqiOmfHdOb+H4QgMbGhflRFxW5mOx7pKJ5aQp7BBDyPBU/X5yggnvLRx6WNgQKfB7+klB3bzOSJ60S689laNW/T7EMIhfadH881A8xQGywoKb9vEVngIlv7w2Uf/Kzphfo339VKzmorXf5s04oJV9Y6NiECBTWH4D5NhSmhPtCbETqQuL17i019HZridu50SROXGGDOP6oLr8sryF1HfJej1DDLd6pVcSYVRRchCVLmBXpJMkpKw8Th3izjAi4vEz60ET2XHk6YPAoxuLUVyLFWVs3epjAk7p33skOIKG1toySf4tlirs4Mm+jTK5nop3xy6eGK7pswCJn02ojTExeMzoGaAiGuFunuZjb6DnTY/2o0R1J5zZN8N9q/bDjD9SqOxoRmG1VqjfvwZcchHgd6Es3WG2OBbG9XPih7Zg5M=
+  file_glob: true
+  file: Archives/*
+  skip_cleanup: true
+  on:
+    tags: true
